@@ -1,0 +1,23 @@
+{
+  "name": "nextjs-blog",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"next dev\" \"node ./scripts/dev.js\"",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "10.0.2",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@mapbox/rehype-prism": "^0.5.0",
+    "@mdx-js/loader": "^1.6.21",
+    "chokidar": "^3.4.3",
+    "concurrently": "^5.3.0",
+    "gray-matter": "^4.0.2",
+    "remark-containers": "^1.2.0"
+  }
+}
