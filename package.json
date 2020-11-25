@@ -18,6 +18,8 @@
     "chokidar": "^3.4.3",
     "concurrently": "^5.3.0",
     "gray-matter": "^4.0.2",
-    "remark-containers": "^1.2.0"
+    "markdown-toc": "^1.2.0",
+    "remark-containers": "^1.2.0",
+    "sass": "^1.29.0"
   }
 }

@@ -1,5 +1,6 @@
 const { getOptions } = require('loader-utils');
 const matter = require('gray-matter');
+const toc = require('markdown-toc');
 
 const loader = async function(filetext) {
   const callback = this.async()
@@ -9,7 +10,9 @@ const loader = async function(filetext) {
 
   let { content, data } = matter(filetext);
   
-  content += `\nexport const MarkdownData = ${JSON.stringify(data)};`;
+  content += `\nexport const yaml = ${JSON.stringify(data)};`;
+
+  content += `\n export const toc = ${JSON.stringify(toc(content).json)}`;
 
   return callback(null, content);
 };
