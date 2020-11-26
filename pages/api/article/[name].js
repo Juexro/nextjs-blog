@@ -1,7 +1,7 @@
+import documents from '@/documents/index.json';
 
 export default (req, res) => {
   const { name } = req.query;
-  const documents = require('../../../documents/index.json');
   
   const index = documents.findIndex(doc => doc.name === name);
 

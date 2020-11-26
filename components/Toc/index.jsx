@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import style from './style.module.scss';
+import { classNames } from '@/utils';
 
 export default function Toc(props) {
-  const { data } = props;
+  const { data, onAnchorClick, className, ...attrs } = props;
   const [tree, setTree] = useState([]);
 
   useEffect(() => {
@@ -46,7 +48,7 @@ export default function Toc(props) {
   const renderToc = (toc) => {
     return (
       <div key={toc.i} style={{marginLeft: toc.depth * 10 + 'px'}}>
-        <div>{toc.content}</div>
+        <div onClick={() => { onAnchorClick && onAnchorClick(toc) }}>{toc.content}</div>
         {
           toc.children.length > 0 && (
             <div>
@@ -63,7 +65,7 @@ export default function Toc(props) {
   }
 
   return (
-    <div>
+    <div {...attrs} className={classNames([style.container, className])}>
       {
         tree.map(item => renderToc(item))
       }

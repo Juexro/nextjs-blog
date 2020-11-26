@@ -1,15 +1,26 @@
 import Head from 'next/head';
-import Component, { yaml, toc } from '../../documents/apply-cert';
-import fetch from '../../utils/fetch';
-import Toc from '../../components/Toc';
+import Component, { yaml, toc } from '@/documents/apply-cert';
+import * as fetch from '@/utils/fetch';
+import Toc from '@/components/Toc';
+import style from '@/styles/Article.module.scss';
+import { useRef } from 'react';
 
 export default function Article({ current }) {
+  const ref = useRef();
+  const onAnchorClick = (data) => {
+    const anchor = ref.current.querySelector('h1,h2,h3,h4,h5,h6');
+    ref.current.scrollTop = anchor.offsetTop;
+  };
+
   return (
-    <div>
-      {current.title}
-      article
-      <Component></Component>
-      <Toc data={toc}></Toc>
+    <div className={style.container}>
+      <div className={style.article} ref={ref}>
+        {current.title}
+        <Component></Component>
+      </div>
+      <div className={style.toc}>
+        <Toc data={toc} onAnchorClick={onAnchorClick}></Toc>
+      </div>
     </div>
   )
 }
