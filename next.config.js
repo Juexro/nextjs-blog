@@ -22,6 +22,7 @@ module.exports = {
         path.resolve('./scripts/markdown-loader.js')
       ]
     });
+    config.resolve.alias['@'] = path.resolve('.');
 
     return config;
   }
