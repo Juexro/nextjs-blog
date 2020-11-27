@@ -24,17 +24,28 @@ export default function Article({ prev, current, next }) {
           {current.title}
           <Component></Component>
           <ArticleCopyright></ArticleCopyright>
-          <div>
-            {
-              prev && (
-                <div>上一篇 <Link href={`/article/${prev.name}`}>{prev.title}</Link></div>
-              )
-            }
-            {
-              next && (
-                <div>下一篇 <Link href={`/article/${next.name}`}>{next.title}</Link></div>
-              )
-            }
+          
+          <div className={style.turns}>
+            <div className={style.turn}>
+              {
+                prev && (
+                  <>
+                    <span className="iconfont">&#xe62c;</span>
+                    <Link href={`/article/${prev.name}`}>{prev.title}</Link>
+                  </>
+                )
+              }
+            </div>
+            <div className={style.turn}>
+              {
+                next && (
+                  <>
+                    <Link href={`/article/${next.name}`}>{next.title}</Link>
+                    <span className="iconfont">&#xe62d;</span>
+                  </>
+                )
+              }
+            </div>
           </div>
         </div>
         <div className={style.toc}>
