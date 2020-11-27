@@ -1,7 +1,6 @@
 const chokidar = require('chokidar');
 const fs = require('fs');
 const path = require('path');
-const execFileSync = require('child_process').spawn;
 const { loadAllMdxYaml } = require('./utils')
 const document_path = path.resolve('./documents');
 
@@ -9,7 +8,10 @@ const generateJSON = () => {
   const options = loadAllMdxYaml(document_path);
   fs.writeFileSync(
     path.resolve(document_path, 'index.json'),
-    JSON.stringify(options, null, 2)
+    JSON.stringify(
+      options.sort((a, b) => {
+        return +new Date(a.create_time) - new Date(b.create_time);
+      }), null, 2)
   );
 };
 
