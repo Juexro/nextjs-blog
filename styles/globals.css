@@ -35,6 +35,10 @@ a {
 
 .container {
   height: 100vh;
+  display: flex;
+}
+.profile {
+  width: 20rem;
 }
 
 ::-webkit-scrollbar {

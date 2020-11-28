@@ -3,8 +3,9 @@ import Link from 'next/link';
 import Component, { yaml, toc } from '@/documents/apply-cert';
 import * as fetch from '@/utils/fetch';
 import Toc from '@/components/Toc';
+import Profile from '@/components/Profile';
 import ArticleCopyright from '@/components/ArticleCopyright';
-import style from '@/styles/Article.module.scss';
+import styles from '@/styles/Article.module.scss';
 import { useRef } from 'react';
 
 export default function Article({ prev, current, next }) {
@@ -19,14 +20,17 @@ export default function Article({ prev, current, next }) {
 
   return (
     <div className="container">
-      <div className={style.container} ref={ref}>
-        <div className={style.article}>
+      <div className="profile">
+        <Profile></Profile>
+      </div>
+      <div className={styles.container} ref={ref}>
+        <div className={styles.article}>
           {current.title}
           <Component></Component>
           <ArticleCopyright></ArticleCopyright>
           
-          <div className={style.turns}>
-            <div className={style.turn}>
+          <div className={styles.turns}>
+            <div className={styles.turn}>
               {
                 prev && (
                   <>
@@ -36,7 +40,7 @@ export default function Article({ prev, current, next }) {
                 )
               }
             </div>
-            <div className={style.turn}>
+            <div className={styles.turn}>
               {
                 next && (
                   <>
@@ -48,7 +52,7 @@ export default function Article({ prev, current, next }) {
             </div>
           </div>
         </div>
-        <div className={style.toc}>
+        <div className={styles.toc}>
           <Toc data={toc} onAnchorClick={onAnchorClick}></Toc>
         </div>
       </div>
@@ -90,7 +94,7 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps() {
   const name = 'apply-cert';
   const response = await fetch.get(`/article/${name}`);
   return {

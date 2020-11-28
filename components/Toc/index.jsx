@@ -65,10 +65,10 @@ export default function Toc(props) {
   }
 
   return (
-    <div {...attrs} className={classNames([style.container, className])}>
+    <aside {...attrs} className={classNames([style.container, className])}>
       {
         tree.map(item => renderToc(item))
       }
-    </div>
+    </aside>
   )
 }
