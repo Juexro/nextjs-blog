@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 import * as fetch from '@/utils/fetch';
 import Profile from '@/components/Profile';
+import ArticleCard from '@/components/ArticleCard';
 
 export default function Home({ documents }) {
   return (
@@ -12,11 +13,9 @@ export default function Home({ documents }) {
       </div>
       <div className={styles.container}>
         {
-          documents.map(({ name, title }, index) => {
+          documents.map((document, index) => {
             return (
-              <div key={index}>
-                <Link href={`${process.env.HOST}/article/${name}`}>{title}</Link>
-              </div>
+              <ArticleCard key={index} data={document}></ArticleCard>
             )
           })
         }

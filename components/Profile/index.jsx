@@ -5,7 +5,7 @@ import styles from './style.module.scss';
 export default function Profile() {
   const links = [
     {
-      icon: <span className="iconfont">&#58905;</span>,
+      icon: <span className="iconfont">&#xe6a5;</span>,
       href: '/',
       title: '首页'
     }
@@ -13,6 +13,9 @@ export default function Profile() {
 
   return (
     <div className={styles.profile}>
+      <div className={styles.info}>
+        <img className={styles.head} src="/head.jpg" alt=""/>
+      </div>
       <ul className={styles.menu}>
         {
           links.map(({ href, icon, title }, index) => {

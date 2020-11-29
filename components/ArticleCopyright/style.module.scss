@@ -4,3 +4,9 @@
   font-size: 0.875rem;
   padding: 1rem 1rem;
 }
+
+.column {
+  & + & {
+    margin-top: 0.6rem;
+  }
+}
