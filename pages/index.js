@@ -4,12 +4,14 @@ import styles from '../styles/Home.module.css';
 import * as fetch from '@/utils/fetch';
 import Profile from '@/components/Profile';
 import ArticleCard from '@/components/ArticleCard';
+import Navigator from '@/components/Navigator';
 
 export default function Home({ documents }) {
   return (
-    <div className="container">
-      <div className="profile">
+    <div className="root">
+      <div className="left-side">
         <Profile></Profile>
+        <Navigator></Navigator>
       </div>
       <div className={styles.container}>
         {
@@ -19,6 +21,8 @@ export default function Home({ documents }) {
             )
           })
         }
+      </div>
+      <div className="right-side">
       </div>
     </div>
   )

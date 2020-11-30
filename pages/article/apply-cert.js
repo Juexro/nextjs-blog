@@ -4,6 +4,7 @@ import Component, { yaml, toc } from '@/documents/apply-cert';
 import * as fetch from '@/utils/fetch';
 import Toc from '@/components/Toc';
 import Profile from '@/components/Profile';
+import Navigator from '@/components/Navigator';
 import ArticleCopyright from '@/components/ArticleCopyright';
 import styles from '@/styles/Article.module.scss';
 import { useRef } from 'react';
@@ -19,9 +20,10 @@ export default function Article({ prev, current, next }) {
   };
 
   return (
-    <div className="container">
-      <div className="profile">
+    <div className="root">
+      <div className="left-side">
         <Profile></Profile>
+        <Navigator></Navigator>
       </div>
       <div className={styles.container} ref={ref}>
         <div className={styles.article}>
@@ -52,9 +54,9 @@ export default function Article({ prev, current, next }) {
             </div>
           </div>
         </div>
-        <div className={styles.toc}>
-          <Toc data={toc} onAnchorClick={onAnchorClick}></Toc>
-        </div>
+      </div>
+      <div className="right-side">
+        <Toc data={toc} onAnchorClick={onAnchorClick}></Toc>
       </div>
     </div>
   )

@@ -20,6 +20,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 0.8333vw;
+  background-color: #eaeaea;
 }
 
 @media screen and (max-width: 1300px) {
@@ -33,11 +34,16 @@ a {
   text-decoration: none;
 }
 
-.container {
-  height: 100vh;
+.root {
+  min-height: 100vh;
   display: flex;
+  width: 80%;
+  margin: 0 auto;
 }
-.profile {
+.left-side {
+  width: 16rem;
+}
+.right-side {
   width: 16rem;
 }
 

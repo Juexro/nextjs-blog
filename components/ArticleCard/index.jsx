@@ -12,7 +12,7 @@ export default function ArticleCard(props) {
       </h3>
       <div>
         <span className={styles.description}>
-          <span className="iconfont">&#xe609;</span> {new Date(create_time).toLocaleString('zh-CN', {
+          <span className="iconfont">&#59013;</span> {new Date(create_time).toLocaleString('zh-CN', {
             hour12: false
           }).replace(/-/g, '/')}
         </span>
