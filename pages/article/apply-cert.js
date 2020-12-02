@@ -55,9 +55,9 @@ export default function Article({ prev, current, next }) {
           </div>
         </div>
       </div>
-      <div className="right-side">
+      {/* <div className="right-side">
         <Toc data={toc} onAnchorClick={onAnchorClick}></Toc>
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -8,6 +8,16 @@ export default function Navigator() {
       icon: <span className="iconfont">&#xe6a5;</span>,
       href: '/',
       title: '首页'
+    },
+    {
+      icon: <span className="iconfont">&#59260;</span>,
+      href: '/',
+      title: '友情链接'
+    },
+    {
+      icon: <span className="iconfont">&#58903;</span>,
+      href: '/',
+      title: '关于'
     }
   ];
 
@@ -21,7 +31,7 @@ export default function Navigator() {
                 <Link href={href}>
                   <a className={styles.link}>
                     {icon}
-                    <span className={styles.menuTitle}>{title}</span>
+                    <span className={styles.title}>{title}</span>
                   </a>
                 </Link>
               </li>

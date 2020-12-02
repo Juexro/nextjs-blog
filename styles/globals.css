@@ -9,7 +9,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
@@ -20,7 +20,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 0.8333vw;
-  background-color: #eaeaea;
+  background-color:  rgb(245, 245, 245);
 }
 
 @media screen and (max-width: 1300px) {
@@ -79,7 +79,7 @@ a {
 
 .iconfont {
   font-family: "iconfont" !important;
-  font-size: 1rem;
+  /* font-size: 1rem; */
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

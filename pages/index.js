@@ -22,8 +22,6 @@ export default function Home({ documents }) {
           })
         }
       </div>
-      <div className="right-side">
-      </div>
     </div>
   )
 }

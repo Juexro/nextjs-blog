@@ -1,6 +1,7 @@
 .container {
   background-color: #fff;
-  margin: 1.6rem 0;
+  margin: 1.2rem 0;
+  padding: 1.2rem 0;
 }
 
 .menu {
@@ -9,16 +10,23 @@
   padding: 0;
 }
 
-.menuTitle {
+.title {
   margin-left: 1.2rem;
 }
 
 .link {
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1.6rem;
   width: 100%;
   display: inline-block;
+  color: $text-default-color;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  &:hover {
+    color: $text-hover-color;
+    background-color: $bg-color;
+  }
 }
-
 .info {
   display: flex;
   justify-content: center;
