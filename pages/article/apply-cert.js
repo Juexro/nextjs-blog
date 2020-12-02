@@ -10,6 +10,7 @@ import styles from '@/styles/Article.module.scss';
 import { useRef } from 'react';
 
 export default function Article({ prev, current, next }) {
+  const { create_time, name, title, tags } = current;
   const ref = useRef();
   const onAnchorClick = (data) => {
     const anchor = ref.current.querySelectorAll('h1,h2,h3,h4,h5,h6')[data.i];
@@ -27,7 +28,28 @@ export default function Article({ prev, current, next }) {
       </div>
       <div className={styles.container} ref={ref}>
         <div className={styles.article}>
-          {current.title}
+          <div className={styles.header}>
+            <h1 className={styles.title}>{current.title}</h1>
+            <div>
+              <span className={styles.description}>
+                <span className="iconfont">&#59013;</span> {new Date(create_time).toLocaleString('zh-CN', {
+                  hour12: false
+                }).replace(/-/g, '/')}
+              </span>
+              <span className={styles.description}>
+                <span className="iconfont">&#xe62b;</span>
+                {
+                  tags.map((tag, index) => {
+                    return (
+                      <span key={index}>{tag}</span>
+                    )
+                  })
+                }
+              </span>
+            </div>
+          </div>
+          
+          
           <Component></Component>
           <ArticleCopyright></ArticleCopyright>
           

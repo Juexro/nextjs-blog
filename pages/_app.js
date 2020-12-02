@@ -1,5 +1,4 @@
 import '../styles/reset.css';
-import '../styles/globals.css';
 import '../styles/prism.scss';
 import '../styles/global.scss';
 
