@@ -3,6 +3,11 @@ const fs = require('fs');
 const path = require('path');
 const { loadAllMdxYaml } = require('./utils')
 const document_path = path.resolve('./documents');
+const article_path = path.resolve('./pages/article');
+
+if (!fs.existsSync(article_path)) {
+  fs.mkdirSync(article_path);
+}
 
 const generateJSON = () => {
   const options = loadAllMdxYaml(document_path);
@@ -17,6 +22,20 @@ const generateJSON = () => {
 
 generateJSON();
 
+const createArticle = (filepath) => {
+  const name = path.basename(filepath, '.mdx');
+  const template = fs.readFileSync(path.resolve('./scripts/template.js')).toString('utf-8').replace(/\$ARTICLE/g, name);
+  fs.writeFileSync(
+    path.resolve(article_path, `${name}.js`),
+    template
+  )
+};
+
+const unlinkArticle = (filepath) => {
+  const name = path.basename(filepath, '.mdx');
+  fs.unlinkSync(path.resolve(article_path, `${name}.js`));
+};
+
 const throtte = (() => {
   let timer;
   return () => {
@@ -30,15 +49,17 @@ chokidar
   .watch([path.resolve('./documents/**/*.mdx')], {
     ignored: ['index.json']
   })
-  .on('add', path => {
+  .on('add', filepath => {
+    createArticle(filepath);
     throtte();
-    console.log(`File ${path} has been added`)
+    console.log(`File ${filepath} has been added`)
   })
-  .on('change', path => {
+  .on('change', filepath => {
     throtte();
-    console.log(`File ${path} has been change`)
+    console.log(`File ${filepath} has been change`)
   })
-  .on('unlink', path => {
+  .on('unlink', filepath => {
+    unlinkArticle(filepath);
     throtte();
-    console.log(`File ${path} has been unlink`)
+    console.log(`File ${filepath} has been unlink`)
   });

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"next dev\" \"node ./scripts/dev.js\"",
+    "dev": "rimraf ./pages/article/* && concurrently \"next dev\" \"node ./scripts/dev.js\"",
     "build": "next build",
     "start": "next start"
   },
@@ -20,6 +20,7 @@
     "gray-matter": "^4.0.2",
     "markdown-toc": "^1.2.0",
     "remark-containers": "^1.2.0",
+    "rimraf": "^3.0.2",
     "sass": "^1.29.0"
   }
 }
