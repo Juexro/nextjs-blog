@@ -7,6 +7,9 @@ module.exports = {
   env: {
     HOST: 'http://localhost:3000'
   },
+  sassOptions: {
+    prependData: `@import "@/styles/variable.scss";`
+  },
   webpack: (config, { defaultLoaders }) => {
     config.resolve.extensions.push('.md', '.mdx');
 

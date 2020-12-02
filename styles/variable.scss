@@ -1,0 +1,17 @@
+$bg-color: rgb(245, 245, 245);
+
+$text-default-color: rgb(85, 85, 85);
+$text-hover-color: rgb(34, 34, 34);
+$text-secondary-color: rgb(153, 153, 153);
+
+$font-md-size: 1rem;
+$font-sm-size: 0.875rem;
+$font-xs-size: 0.75rem;
+
+.font-sm-size {
+  font-size: $font-sm-size;
+}
+
+.font-xs-size {
+  font-size: $font-xs-size;
+}
