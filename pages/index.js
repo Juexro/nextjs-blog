@@ -9,6 +9,10 @@ import Navigator from '@/components/Navigator';
 export default function Home({ documents }) {
   return (
     <div className="root">
+      <Head>
+        <title>首页 - Juexro's Notes</title>
+        <meta name="keywords" content=""></meta>
+      </Head>
       <div className="left-side">
         <Profile></Profile>
         <Navigator></Navigator>

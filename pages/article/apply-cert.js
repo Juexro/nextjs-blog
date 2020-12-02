@@ -10,7 +10,7 @@ import styles from '@/styles/Article.module.scss';
 import { useRef } from 'react';
 
 export default function Article({ prev, current, next }) {
-  const { create_time, name, title, tags } = current;
+  const { create_time, name, title, tags, keywords = [] } = current;
   const ref = useRef();
   const onAnchorClick = (data) => {
     const anchor = ref.current.querySelectorAll('h1,h2,h3,h4,h5,h6')[data.i];
@@ -22,6 +22,10 @@ export default function Article({ prev, current, next }) {
 
   return (
     <div className="root">
+      <Head>
+        <title>{`${title} - Juexro's Notes`}</title>
+        <meta name="keywords" content={keywords.join(',')}></meta>
+      </Head>
       <div className="left-side">
         <Profile></Profile>
         <Navigator></Navigator>
@@ -48,8 +52,7 @@ export default function Article({ prev, current, next }) {
               </span>
             </div>
           </div>
-          
-          
+
           <Component></Component>
           <ArticleCopyright></ArticleCopyright>
           
