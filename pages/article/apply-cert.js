@@ -32,7 +32,7 @@ export default function Article({ prev, current, next }) {
           <ArticleCopyright></ArticleCopyright>
           
           <div className={styles.turns}>
-            <div className={styles.turn}>
+            <div className={`${styles.turn} hover`}>
               {
                 prev && (
                   <>
@@ -42,7 +42,7 @@ export default function Article({ prev, current, next }) {
                 )
               }
             </div>
-            <div className={styles.turn}>
+            <div className={`${styles.turn} hover`}>
               {
                 next && (
                   <>

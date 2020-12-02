@@ -8,7 +8,9 @@ export default function ArticleCard(props) {
   return (
     <div className={styles.container}>
       <h3>
-        <Link href={`${process.env.HOST}/article/${name}`}>{title}</Link>
+        <Link href={`${process.env.HOST}/article/${name}`}>
+           <a className="hover">{title}</a>
+        </Link>
       </h3>
       <div>
         <span className={styles.description}>

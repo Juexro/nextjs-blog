@@ -1,0 +1,23 @@
+.font-sm-size {
+  font-size: $font-sm-size;
+}
+
+.font-xs-size {
+  font-size: $font-xs-size;
+}
+
+.hover {
+  color: $text-default-color;
+  transition-duration: 0.2s;
+  &:hover {
+    color: $text-hover-color;
+  }
+}
+
+.link {
+  @extend .hover;
+  text-decoration: underline solid $text-default-color;
+  &:hover {
+    text-decoration-color: $text-hover-color;
+  }
+}
