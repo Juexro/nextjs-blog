@@ -6,6 +6,7 @@ import Toc from '@/components/toc';
 import Profile from '@/components/profile';
 import Navigator from '@/components/navigator';
 import ArticleCopyright from '@/components/article-copyright';
+import Footer from '@/components/footer';
 import styles from '@/styles/Article.module.scss';
 import { useRef } from 'react';
 
@@ -13,10 +14,9 @@ export default function Article({ prev, current, next }) {
   const { create_time, name, title, tags, keywords = [] } = current;
   const ref = useRef();
   const onAnchorClick = (data) => {
-    const anchor = ref.current.querySelectorAll('h1,h2,h3,h4,h5,h6')[data.i];
+    const anchor = ref.current.querySelectorAll('h1,h2,h3,h4,h5,h6')[data.i + 1];
     if (anchor) {
       anchor.scrollIntoView({ behavior: 'smooth' });
-      // ref.current.scrollTo({ top: anchor.offsetTop - 32,  behavior: 'smooth' });
     }
   };
 
@@ -28,7 +28,10 @@ export default function Article({ prev, current, next }) {
       </Head>
       <div className="left-side">
         <Profile></Profile>
-        <Navigator></Navigator>
+        <div className={styles.sticky}>
+          <Navigator></Navigator>
+          <Toc data={toc} onAnchorClick={onAnchorClick}></Toc>
+        </div>
       </div>
       <div className={styles.container} ref={ref}>
         <div className={styles.article}>
@@ -79,10 +82,8 @@ export default function Article({ prev, current, next }) {
             </div>
           </div>
         </div>
+        <Footer></Footer>
       </div>
-      {/* <div className="right-side">
-        <Toc data={toc} onAnchorClick={onAnchorClick}></Toc>
-      </div> */}
     </div>
   )
 }

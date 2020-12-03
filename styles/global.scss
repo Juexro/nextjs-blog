@@ -6,9 +6,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-  width: 100%;
-  height: 100%;
-  // overflow: hidden;
   font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -38,7 +35,7 @@ a {
 .root {
   min-height: 100vh;
   display: flex;
-  width: 80%;
+  width: 70rem;
   margin: 0 auto;
 }
 .left-side {

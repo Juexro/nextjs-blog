@@ -1,0 +1,11 @@
+.footer {
+  height: 5rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  line-height: 1.5;
+  text-align: center;
+  font-size: $font-sm-size;
+}

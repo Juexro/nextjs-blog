@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import style from './style.module.scss';
+import styles from './style.module.scss';
 import { classNames } from '@/utils';
 
 export default function Toc(props) {
@@ -11,7 +11,7 @@ export default function Toc(props) {
     let depth = 0;
     const findDeepResult = (toc, depth) => {
       depth--;
-      if (depth === 0) {
+      if (depth <= 0) {
         return toc;
       } else {
         return findDeepResult(toc.children.slice(-1)[0], depth);
@@ -48,7 +48,7 @@ export default function Toc(props) {
   const renderToc = (toc) => {
     return (
       <div key={toc.i} style={{marginLeft: toc.depth * 10 + 'px'}}>
-        <div onClick={() => { onAnchorClick && onAnchorClick(toc) }}>{toc.content}</div>
+        <div className={classNames([styles.anchor, 'hover'])} onClick={() => { onAnchorClick && onAnchorClick(toc) }}>{toc.content}</div>
         {
           toc.children.length > 0 && (
             <div>
@@ -65,7 +65,7 @@ export default function Toc(props) {
   }
 
   return (
-    <aside {...attrs} className={classNames([style.container, className])}>
+    <aside {...attrs} className={classNames([styles.container, className])}>
       {
         tree.map(item => renderToc(item))
       }

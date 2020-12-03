@@ -1,6 +1,5 @@
 .container {
-  padding: 1.2rem;
-  height: 100%;
+  padding: 1.2rem 1.2rem 0 1.2rem;
   overflow: auto;
   flex: 1;
 }
@@ -50,4 +49,9 @@
   & + & {
     margin-left: 1rem;
   }
+}
+
+.sticky {
+  position: sticky;
+  top: 1.2rem;
 }

@@ -5,6 +5,7 @@ import * as fetch from '@/utils/fetch';
 import Profile from '@/components/profile';
 import ArticleCard from '@/components/article-card';
 import Navigator from '@/components/navigator';
+import Footer from '@/components/footer';
 
 export default function Home({ documents }) {
   return (
@@ -18,13 +19,16 @@ export default function Home({ documents }) {
         <Navigator></Navigator>
       </div>
       <div className={styles.container}>
-        {
-          documents.map((document, index) => {
-            return (
-              <ArticleCard key={index} data={document}></ArticleCard>
-            )
-          })
-        }
+        <div className={styles.full}>
+          {
+            documents.map((document, index) => {
+              return (
+                <ArticleCard key={index} data={document}></ArticleCard>
+              )
+            })
+          }
+        </div>
+        <Footer></Footer>
       </div>
     </div>
   )
