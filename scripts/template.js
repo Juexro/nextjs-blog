@@ -2,10 +2,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Component, { yaml, toc } from '@/documents/$ARTICLE';
 import * as fetch from '@/utils/fetch';
-import Toc from '@/components/Toc';
-import Profile from '@/components/Profile';
-import Navigator from '@/components/Navigator';
-import ArticleCopyright from '@/components/ArticleCopyright';
+import Toc from '@/components/toc';
+import Profile from '@/components/profile';
+import Navigator from '@/components/navigator';
+import ArticleCopyright from '@/components/article-copyright';
 import styles from '@/styles/Article.module.scss';
 import { useRef } from 'react';
 

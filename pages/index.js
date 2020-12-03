@@ -2,9 +2,9 @@ import Head from 'next/head';
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 import * as fetch from '@/utils/fetch';
-import Profile from '@/components/Profile';
-import ArticleCard from '@/components/ArticleCard';
-import Navigator from '@/components/Navigator';
+import Profile from '@/components/profile';
+import ArticleCard from '@/components/article-card';
+import Navigator from '@/components/navigator';
 
 export default function Home({ documents }) {
   return (
