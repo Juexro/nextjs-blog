@@ -1,8 +1,8 @@
 pre code {
   display: block;
-  padding: 16px 32px;
+  padding: 1rem 1.4rem;
   color: #314659;
-  font-size: 14px;
+  font-size: $font-sm-size;
   font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   line-height: 2;
   white-space: pre;
@@ -14,17 +14,18 @@ pre code {
 code {
   margin: 0 1px;
   padding: 0.2em 0.4em;
-  font-size: 0.9em;
+  font-size: $font-sm-size;
   background-color: #f2f4f5;
   border: 1px solid #eee;
   border-radius: 3px;
+  vertical-align: middle;
+  font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
 code[class*='language-'],
 pre[class*='language-'] {
   margin: 0;
   color: #314659;
-  font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   line-height: 1.5;
   direction: ltr;
   white-space: pre;
@@ -69,6 +70,7 @@ pre[class*='language-'] {
   /* margin: 16px 0; */
   /* padding: 12px 20px; */
   overflow: auto;
+  margin: 1.2rem 0;
 }
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {

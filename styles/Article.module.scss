@@ -8,12 +8,26 @@
 .article {
   background-color: #fff;
   padding: 3rem;
+  h1, h2, h3, h4, h5, h6 {
+    margin: 1rem 0;
+  }
+  ul {
+    padding-left: 1.5rem;
+    li:before {
+      content: "-";
+      color: rgb(153, 153, 153);
+      position: absolute;
+      margin-left: -1rem;
+    }
+  }
+  line-height: 1.5;
 }
 
 .turns {
   margin-top: 3rem;
   display: flex;
   justify-content: space-between;
+  font-size: $font-sm-size;
 }
 
 .turn {

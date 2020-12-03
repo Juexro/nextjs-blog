@@ -1,0 +1,63 @@
+---
+create_time: 2020-11-24T14:06:52.348Z
+title: 如何使用nextjs-blog搭建自己的博客
+tags: [部署]
+keywords: [nextjs, blog]
+---
+
+import SolidLink from '@/components/solid-link';
+
+## 开始
+
+安装Node.js环境，选择LTS版本。<SolidLink href="https://nodejs.org/en/">[下载地址]</SolidLink>
+
+搭建前建议先阅读 <SolidLink href="https://www.nextjs.cn/docs/getting-started">Next.js开发文档</SolidLink>
+
+```bash
+$ # 全局安装yarn命令
+$ npm install yarn -g
+$
+$ # 从example分支下载项目
+$ yarn create next-app [项目名] -e https://github.com/Juexro/nextjs-blog.git/example
+$
+$ # 启动开发环境，默认访问地址 http://localhost:3000
+$ yarn run dev
+```
+
+## 创建文章
+
+在`documents`目录下创建`.mdx`文件，页面链接以文件名命名，确保文件名的唯一性。
+
+填入文章信息 `YAML格式`，以本篇为例。
+```yaml
+---
+create_time: 2020-11-24T14:06:52.348Z    # 创建时间
+title: 如何使用nextjs-blog搭建自己的博客    # 文章名称
+tags: [部署]                             # 标签
+keywords: [nextjs, blog]                # 关键字
+---
+
+import SolidLink from '@/components/solid-link';
+
+
+## 开始
+
+安装Node.js环境，选择LTS版本。<SolidLink href="https://nodejs.org/en/">[下载地址]</SolidLink>
+
+搭建前建议先阅读 <SolidLink href="https://www.nextjs.cn/docs/getting-started">Next.js开发文档</SolidLink>
+```
+
+支持引入组件，如上方示例中的`SolidLink`。
+
+## 部署
+
+```bash
+$ # 生成HTML文件
+$ yarn run build
+```
+
+## 说明
+
++ 启动开发环境时，会删除`pages/article`目录下的所有文件并根据`.mdx`文件重新生成。
+
++ 编译过程中会在`documents`目录下创建`index.json`文件，用以包含所有文章的`YAML`信息，请勿操作此文件。
