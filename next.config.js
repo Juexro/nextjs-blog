@@ -4,9 +4,6 @@ const remarkContainer = require('remark-containers');
 
 
 module.exports = {
-  env: {
-    HOST: 'http://localhost:3000'
-  },
   sassOptions: {
     prependData: `@import "@/styles/variable.scss";`
   },

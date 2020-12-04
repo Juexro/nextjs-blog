@@ -13,11 +13,6 @@ export default function Navigator() {
       icon: <span className="iconfont">&#59260;</span>,
       href: '/',
       title: '友情链接'
-    },
-    {
-      icon: <span className="iconfont">&#58903;</span>,
-      href: '/',
-      title: '关于'
     }
   ];
 
