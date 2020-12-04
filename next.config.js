@@ -4,6 +4,7 @@ const remarkContainer = require('remark-containers');
 
 
 module.exports = {
+  trailingSlash: true,
   sassOptions: {
     prependData: `@import "@/styles/variable.scss";`
   },

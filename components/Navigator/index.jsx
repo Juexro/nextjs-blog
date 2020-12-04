@@ -8,11 +8,6 @@ export default function Navigator() {
       icon: <span className="iconfont">&#xe6a5;</span>,
       href: '/',
       title: '首页'
-    },
-    {
-      icon: <span className="iconfont">&#59260;</span>,
-      href: '/',
-      title: '友情链接'
     }
   ];
 

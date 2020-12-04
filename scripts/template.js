@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router'
 import Component, { yaml, toc } from '@/documents/$ARTICLE';
 import * as fetch from '@/utils/fetch';
 import Toc from '@/components/toc';
@@ -10,8 +12,11 @@ import Footer from '@/components/footer';
 import styles from '@/styles/Article.module.scss';
 import { useRef } from 'react';
 
+const GitalkComponent = dynamic(() => import('gitalk/dist/gitalk-component'))
+
 export default function Article({ prev, current, next }) {
-  const { create_time, name, title, tags, keywords = [] } = current;
+  const router = useRouter();
+  const { create_time, title, tags, keywords = [] } = current;
   const ref = useRef();
   const onAnchorClick = (data) => {
     const anchor = ref.current.querySelectorAll('h1,h2,h3,h4,h5,h6')[data.i + 1];
@@ -81,6 +86,7 @@ export default function Article({ prev, current, next }) {
               }
             </div>
           </div>
+
         </div>
         <Footer></Footer>
       </div>
@@ -88,39 +94,39 @@ export default function Article({ prev, current, next }) {
   )
 }
 
-export async function getStaticPaths() {
-  const name = '$ARTICLE';
-  const response = await fetch.get(`/article/${name}`);
+// export async function getStaticPaths() {
+//   const name = '$ARTICLE';
+//   const response = await fetch.get(`/article/${name}`);
 
-  const { tags, create_time } = response.data.current;
-  const paths = [];
+//   const { tags, create_time } = response.data.current;
+//   const paths = [];
 
-  if (tags) {
-    paths.push(...(Array.isArray(tags) ? tags : [tags]).map(tag => {
-      return {
-        params: {
-          name,
-          tag
-        }
-      }
-    }));
-  }
+//   if (tags) {
+//     paths.push(...(Array.isArray(tags) ? tags : [tags]).map(tag => {
+//       return {
+//         params: {
+//           name,
+//           tag
+//         }
+//       }
+//     }));
+//   }
 
-  if (create_time) {
-    const date = new Date(create_time);
-    paths.push({
-      params: {
-        name,
-        archive: `${date.getFullYear()}${date.getMonth() + 1}`
-      }
-    });
-  }
+//   if (create_time) {
+//     const date = new Date(create_time);
+//     paths.push({
+//       params: {
+//         name,
+//         archive: `${date.getFullYear()}${date.getMonth() + 1}`
+//       }
+//     });
+//   }
 
-  return {
-    paths,
-    fallback: false,
-  }
-}
+//   return {
+//     paths,
+//     fallback: false,
+//   }
+// }
 
 export async function getStaticProps() {
   const name = '$ARTICLE';
