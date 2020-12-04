@@ -2,36 +2,53 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 
-function loadMdxYaml(filepath) {
+function readDirectory(dir, handler) {
+  const read = (dir) => {
+    const stats = fs.statSync(dir);
+    if (stats.isDirectory()) {
+      fs.readdirSync(dir).forEach(sub => {
+        read(path.join(dir, sub));
+      });
+    } else {
+      handler(dir);
+    }
+  };
+  read(dir);
+}
+
+
+function loadMdxYAML(filepath) {
   return {
     ...matter(fs.readFileSync(filepath)).data,
     name: path.basename(filepath, '.mdx')
   };
 }
 
-function loadAllMdxYaml(dir) {
+function loadAllMdxYAML(dir) {
   const result = [];
-  const readMdx = (dir) => {
-    const stats = fs.statSync(dir);
-    if (stats.isDirectory()) {
-      fs.readdirSync(dir).forEach(sub => {
-        readMdx(path.join(dir, sub));
-      });
-    } else {
-      if (path.extname(dir) === '.mdx') {
+
+  readDirectory(dir, (filepath) => {
+      if (path.extname(filepath) === '.mdx') {
         result.push({
-          ...matter(fs.readFileSync(dir)).data,
-          name: path.basename(dir, '.mdx')
+          ...matter(fs.readFileSync(filepath)).data,
+          name: path.basename(filepath, '.mdx')
         });
       }
-    }
-  };
-  readMdx(dir);
+  });
   return result;
 }
 
+function throttle(fn, delay = 300) {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(fn, delay);
+  }
+}
 
 module.exports = {
-  loadAllMdxYaml,
-  loadMdxYaml
+  loadAllMdxYAML,
+  loadMdxYAML,
+  readDirectory,
+  throttle
 }
