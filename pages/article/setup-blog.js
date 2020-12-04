@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
@@ -10,11 +11,12 @@ import Navigator from '@/components/navigator';
 import ArticleCopyright from '@/components/article-copyright';
 import Footer from '@/components/footer';
 import styles from '@/styles/Article.module.scss';
-import { useRef } from 'react';
+import config from '@/config';
 
 const GitalkComponent = dynamic(() => import('gitalk/dist/gitalk-component'))
 
 export default function Article({ prev, current, next }) {
+  const { accessToken, ...gitalkOptions } = config.gitalk || {};
   const router = useRouter();
   const { create_time, title, tags, keywords = [] } = current;
   const ref = useRef();
@@ -86,7 +88,14 @@ export default function Article({ prev, current, next }) {
               }
             </div>
           </div>
-
+          {
+            process.browser && config.gitalk && (
+              <GitalkComponent options={{
+                ...gitalkOptions,
+                id: `${process.env.NEXT_PUBLIC_HOST}${router.pathname}`
+              }} />
+            )
+          }
         </div>
         <Footer></Footer>
       </div>
