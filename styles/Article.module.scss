@@ -20,6 +20,7 @@
     }
   }
   line-height: 2;
+  min-height: calc(100vh - 6rem - 1.2rem);
 }
 
 .turns {
@@ -65,5 +66,6 @@
   .article {
     padding: 1rem;
     line-height: 1.5;
+    min-height: calc(100vh - 9rem - 1.2rem);
   }
 }
