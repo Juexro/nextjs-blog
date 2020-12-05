@@ -31,6 +31,7 @@ export default function Article({ prev, current, next }) {
     <div className="root">
       <Head>
         <title>{`${title} - Juexro's Notes`}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="keywords" content={keywords.join(',')}></meta>
       </Head>
       <div className="left-side">

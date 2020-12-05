@@ -12,6 +12,7 @@ export default function Home({ documents }) {
     <div className="root">
       <Head>
         <title>首页 - Juexro's Notes</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="keywords" content=""></meta>
       </Head>
       <div className="left-side">

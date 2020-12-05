@@ -2,6 +2,11 @@
   padding: 1.2rem 1.2rem 0 1.2rem;
   overflow: auto;
   flex: 1;
+
+  @media screen and (max-width: 1150px) {
+    padding: 0.2rem 0.2rem 0 0.2rem;
+    line-height: 1.5;
+  }
 }
 
 .article {
@@ -20,6 +25,11 @@
     }
   }
   line-height: 2;
+
+  @media screen and (max-width: 1150px) {
+    padding: 1rem;
+    line-height: 1.5;
+  }
 }
 
 .turns {

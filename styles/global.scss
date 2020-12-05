@@ -16,15 +16,27 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 0.8333vw;
+  font-size: 16px;
   background-color:  rgb(245, 245, 245);
   color: $text-default-color;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (min-width: 1151px) and (max-width: 1300px){
 	html {
-		font-size: 12px;
-	}
+		font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+	html {
+		font-size: 16px;
+  }
+  .left-side {
+    display: none;
+  }
+  .root {
+    width: 100% !important;
+  }
 }
 
 a {
@@ -36,6 +48,7 @@ a {
   min-height: 100vh;
   display: flex;
   width: 70rem;
+  // min-width: 1000px;
   margin: 0 auto;
 }
 .left-side {
