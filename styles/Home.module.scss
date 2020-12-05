@@ -1,0 +1,20 @@
+.container {
+  padding: 1.2rem 1.2rem 0 1.2rem;
+  overflow: auto;
+  flex: 1;
+}
+
+.full {
+  min-height: calc(100vh - 6rem - 1.2rem);
+}
+
+
+@media screen and (max-width: 1150px) {
+  .container {
+    margin-top: 3rem;
+    // padding: 0.2rem 0.2rem 0 0.2rem;
+  }
+  .full {
+    min-height: calc(100vh - 9rem - 1.2rem);
+  }  
+}

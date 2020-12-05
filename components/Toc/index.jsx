@@ -65,7 +65,7 @@ export default function Toc(props) {
   }
 
   return (
-    <aside {...attrs} className={classNames([styles.container, className])}>
+    <aside {...attrs} className={classNames(['toc', styles.container, className])}>
       {
         tree.map(item => renderToc(item))
       }

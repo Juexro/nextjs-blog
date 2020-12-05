@@ -6,7 +6,6 @@ import { useRouter } from 'next/router'
 import Component, { yaml, toc } from '@/documents/setup-blog';
 import * as fetch from '@/utils/fetch';
 import Toc from '@/components/toc';
-import Profile from '@/components/profile';
 import Navigator from '@/components/navigator';
 import ArticleCopyright from '@/components/article-copyright';
 import Footer from '@/components/footer';
@@ -17,6 +16,7 @@ const GitalkComponent = dynamic(() => import('gitalk/dist/gitalk-component'))
 
 export default function Article({ prev, current, next }) {
   const { accessToken, ...gitalkOptions } = config.gitalk || {};
+  const { name } = config.profile || {};
   const router = useRouter();
   const { create_time, title, tags, keywords = [] } = current;
   const ref = useRef();
@@ -30,18 +30,17 @@ export default function Article({ prev, current, next }) {
   return (
     <div className="root">
       <Head>
-        <title>{`${title} - Juexro's Notes`}</title>
+        <title>{`${title} - ${name}'s Notes`}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="keywords" content={keywords.join(',')}></meta>
       </Head>
       <div className="left-side">
-        <Profile></Profile>
+        <Navigator></Navigator>
         <div className={styles.sticky}>
-          <Navigator></Navigator>
           <Toc data={toc} onAnchorClick={onAnchorClick}></Toc>
         </div>
       </div>
-      <div className={styles.container} ref={ref}>
+      <div className={`body ${styles.container}`} ref={ref}>
         <div className={styles.article}>
           <div className={styles.header}>
             <h1 className={styles.title}>{current.title}</h1>

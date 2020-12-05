@@ -1,22 +1,21 @@
 import Head from 'next/head';
-import Link from 'next/link';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Home.module.scss';
 import * as fetch from '@/utils/fetch';
-import Profile from '@/components/profile';
 import ArticleCard from '@/components/article-card';
 import Navigator from '@/components/navigator';
 import Footer from '@/components/footer';
+import config from '@/config';
 
 export default function Home({ documents }) {
+  const { name } = config.profile || {};
   return (
     <div className="root">
       <Head>
-        <title>首页 - Juexro's Notes</title>
+        <title>首页 - {name}'s Notes</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="keywords" content=""></meta>
       </Head>
       <div className="left-side">
-        <Profile></Profile>
         <Navigator></Navigator>
       </div>
       <div className={styles.container}>
