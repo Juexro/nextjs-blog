@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+.preload {
+  transition: none;
+}
+
 html,
 body {
   padding: 0;
@@ -88,7 +92,7 @@ a {
 
 .hover {
   color: $text-default-color;
-  // transition-duration: 0.2s;
+  transition-duration: 0.2s;
   &:hover {
     color: $text-hover-color;
   }
