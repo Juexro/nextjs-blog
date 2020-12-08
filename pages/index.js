@@ -5,11 +5,13 @@ import ArticleCard from '@/components/article-card';
 import Navigator from '@/components/navigator';
 import Footer from '@/components/footer';
 import config from '@/config';
+import BackTop from '@/components/back-top';
 
 export default function Home({ documents }) {
   const { name } = config.profile || {};
   return (
     <div className="root">
+      <BackTop />
       <Head>
         <title>首页 - {name}'s Notes</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />

@@ -24,3 +24,11 @@ export function className(name) {
 export function classNames(...names) {
   return className(names);
 }
+
+export function throttle(fn, delay = 300) {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(fn, delay);
+  }
+}

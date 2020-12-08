@@ -9,6 +9,7 @@ import Toc from '@/components/toc';
 import Navigator from '@/components/navigator';
 import ArticleCopyright from '@/components/article-copyright';
 import Footer from '@/components/footer';
+import BackTop from '@/components/back-top';
 import styles from '@/styles/Article.module.scss';
 import config from '@/config';
 
@@ -29,6 +30,7 @@ export default function Article({ prev, current, next }) {
 
   return (
     <div className="root">
+      <BackTop />
       <Head>
         <title>{`${title} - ${name}'s Notes`}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />

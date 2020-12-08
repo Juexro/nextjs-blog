@@ -6,6 +6,7 @@ import Navigator from '@/components/navigator';
 import Footer from '@/components/footer';
 import BlogrollCard from '@/components/blogroll-card';
 import config from '@/config';
+import BackTop from '@/components/back-top';
 
 const GitalkComponent = dynamic(() => import('gitalk/dist/gitalk-component'))
 const { accessToken, ...gitalkOptions } = config.gitalk || {};
@@ -16,6 +17,7 @@ export default function Blogroll() {
 
   return (
     <div className="root">
+      <BackTop />
       <Head>
         <title>友情链接 - {name}'s Notes</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
