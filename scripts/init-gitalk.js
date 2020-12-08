@@ -10,7 +10,7 @@ const { owner, repo, accessToken } = gitalk;
 
 const url = `https://api.github.com/repos/${owner}/${repo}/issues?access_token=${accessToken}&page=1&per_page=1000`;
 
-async function getUnInitalArticles() {
+async function getUnInitalLinks() {
   const data = await fetch(url, {
     method: 'GET',
     headers: {
@@ -18,18 +18,26 @@ async function getUnInitalArticles() {
     }
   }).then(res => res.json());
 
-  const issues = data.map(item => item.body);
+  const issueLinks = data.map(item => item.body);
+  const articleLinks = documents.map(item => {
+    return {
+      title: item.title,
+      link: `${NEXT_PUBLIC_HOST}/article/${item.name}`
+    };
+  });
+  const otherLinks = [
+    {
+      title: '友情链接',
+      link: `${NEXT_PUBLIC_HOST}/blogroll`
+    }
+  ];
 
-  return documents.filter(item => {
-    const link = `${NEXT_PUBLIC_HOST}/article/${item.name}`;
-    return !issues.find(issue => issue.includes(link))
+  return [...articleLinks, ...otherLinks].filter(item => {
+    return !issueLinks.find(link => link.includes(item.link))
   });
 }
 
-async function initialArticle(document) {
-  const { name, title } = document;
-  const link = `${NEXT_PUBLIC_HOST}/article/${name}`;
-
+async function initialLink({ link, title }) {
   await fetch(url, {
     method: 'POST',
     headers: {
@@ -45,11 +53,11 @@ async function initialArticle(document) {
 
 async function run() {
   console.log('获取issues数据...');
-  const articles = await getUnInitalArticles();
-  console.log(`未初始化数量: ${articles.length}`);
+  const links = await getUnInitalLinks();
+  console.log(`未初始化数量: ${links.length}`);
 
-  for (let article of articles) {
-    await initialArticle(article);
+  for (let link of links) {
+    await initialLink(link);
   }
 
   console.log('初始化完成!');
