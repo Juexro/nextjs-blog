@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import Component, { yaml, toc } from '@/documents/$ARTICLE';
 import * as fetch from '@/utils/fetch';
 import Toc from '@/components/toc';

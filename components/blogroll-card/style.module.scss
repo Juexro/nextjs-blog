@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  background-color: #fff;
+  height: 5rem;
+  transition-duration: 0.2s;
+  padding: 0.5rem;
+  border: 1px solid $border-default-color;
+}
+
+.avatar {
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  padding: 0.5rem 1rem;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name {
+  font-size: $font-md-size;
+  font-weight: bold;
+  color: $text-default-color;
+}
+
+.description {
+  margin-top: 0.2rem;
+  font-size: $font-sm-size;
+  color: $text-secondary-color;
+}
