@@ -27,7 +27,7 @@ export default function BackTop() {
   }, []);
 
   const onClick = () => {
-    document.documentElement.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scroll({ top: 0, behavior: 'smooth' });
   };
 
   return (

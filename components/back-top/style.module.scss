@@ -1,19 +1,21 @@
 .btn {
   position: fixed;
+  z-index: 1000;
   right: calc((100% - 70rem) / 2 - 5rem);
-  // bottom: 4rem;
   bottom: -4rem;
   color: #fff;
   background-color: $text-default-color;
   cursor: pointer;
   padding: 0.2rem;
   transition-duration: 0.2s;
+  opacity: 0;
   &:hover {
     background-color: $text-hover-color;
   }
 }
 
 .show {
+  opacity: 1;
   bottom: 3rem;
 }
 
