@@ -11,7 +11,7 @@ $ # 全局安装yarn命令
 $ npm install yarn -g
 $
 $ # 从example分支下载项目
-$ yarn create next-app [项目名] -e https://github.com/Juexro/nextjs-blog.git/example
+$ yarn create next-app [项目名] -e https://github.com/Juexro/nextjs-blog/tree/example
 $
 $ # 启动开发环境，默认访问地址 http://localhost:3000
 $ yarn run dev
