@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import styles from '../styles/Tag.module.scss';
+import styles from '../styles/Archive.module.scss';
 import * as fetch from '@/utils/fetch';
 import Navigator from '@/components/navigator';
 import Footer from '@/components/footer';
@@ -20,7 +20,7 @@ export default function Tags({ data }) {
     <div className="root">
       <BackTop />
       <Head>
-        <title>标签云 - {name}'s Notes</title>
+        <title>归档 - {name}'s Notes</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="keywords" content=""></meta>
       </Head>
@@ -30,7 +30,7 @@ export default function Tags({ data }) {
           {
             data.map((item, index) => {
               return (
-                <div className={styles.anchor} key={index} onClick={() => { onAnchorClick(index) }}>{item.tag}</div>
+                <div className={styles.anchor} key={index} onClick={() => { onAnchorClick(index) }}>{item.time}</div>
               )
             })
           }
@@ -38,12 +38,12 @@ export default function Tags({ data }) {
       </div>
       <div className={styles.container}>
         <div className={styles.full}>
-          <h1 className={styles.title}>标签云</h1>
+          <h1 className={styles.title}>归档</h1>
           {
             data.map((item, index) => {
               return (
                 <div key={index} className={styles.list}>
-                  <div><span className="iconfont">&#58923;</span> {item.tag}</div>
+                  <div><span className="iconfont">&#58926;</span> {item.time}</div>
                   <div>
                     {
                       item.articles.map((article, index) => {
@@ -72,7 +72,7 @@ export default function Tags({ data }) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch.get(`/tags`);
+  const response = await fetch.get(`/archive`);
   return {
     props: {
       data: response.data

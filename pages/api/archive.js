@@ -5,7 +5,7 @@ export default (req, res) => {
   documents.forEach(doc => {
     const { create_time, name, title } = doc;
     const date = new Date(create_time);
-    const time = `${date.getFullYear()}/${date.getMonth() + 1}`;
+    const time = `${date.getFullYear()}年${date.getMonth() + 1}月`;
 
     if (!map[time]) {
       map[time] = [];

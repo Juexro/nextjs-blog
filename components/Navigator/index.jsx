@@ -14,6 +14,11 @@ export default function Navigator() {
       title: '首页'
     },
     {
+      icon: <span className="iconfont">&#58976;</span>,
+      href: '/archive',
+      title: '归档'
+    },
+    {
       icon: <span className="iconfont">&#58923;</span>,
       href: '/tags',
       title: '标签云'

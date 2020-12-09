@@ -23,7 +23,7 @@ export default function ArticleCard(props) {
           {
             tags.map((tag, index) => {
               return (
-                <span key={index}>{tag}</span>
+                <span key={index}> {index > 0 ? ', ' : ''}{tag}</span>
               )
             })
           }
