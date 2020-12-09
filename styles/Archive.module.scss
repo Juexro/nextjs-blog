@@ -13,12 +13,12 @@
 
 .title {
   color: $text-default-color;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .list {
   & + & {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 }
 
@@ -38,6 +38,9 @@
 }
 
 @media screen and (max-width: 1150px) {
+  .sticky {
+    display: none;
+  }
   .container {
     margin-top: 3rem;
     padding: 0.2rem 0.2rem 0 0.2rem;
