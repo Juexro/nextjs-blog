@@ -1,5 +1,5 @@
 ---
-create_time: 2020-11-24T14:06:52.348Z
+create_time: 2020-12-09T02:54:45.017Z
 title: 如何使用nextjs-blog搭建自己的博客
 tags: [部署]
 keywords: [nextjs, blog]
@@ -24,6 +24,70 @@ $ # 启动开发环境，默认访问地址 http://localhost:3000
 $ yarn run dev
 ```
 
+## 配置
+
+### config.js
+```js
+module.exports = {
+  // 个人信息
+  profile: {
+    name: 'Juexro',
+    github: 'https://github.com/Juexro',
+    mail: 'juexro@163.com',
+    avatar: '/avatar.jpg',
+    location: 'Su Zhou, China',
+    position: 'Web Developer'
+  },
+  // 评论工具参数
+  gitalk: {
+    // 用于初始化评论
+    accessToken: '',
+    // gitalk参数
+    clientID: '',
+    clientSecret: '',
+    // 提交的仓库
+    repo: '',
+    owner: 'Juexro',
+    admin: ['Juexro'],
+  },
+  // 友链
+  blogrolls: [
+    {
+      name: 'Juexro',
+      description: '基于Next.js的个人博客',
+      avatar: '/avatar.jpg',
+      link: 'https://www.advanta.top'
+    }
+  ],
+  // 页脚
+  footer: `<div>Copyright &copy; 2020 Juexro</div>`
+}
+```
+
+快捷链接
+  + <SolidLink href="https://github.com/settings/tokens">[生成AccessToken]</SolidLink>
+  + <SolidLink href="https://github.com/settings/developers">[创建OAuth App，生成ClientId、ClientSecret]</SolidLink>
+
+### 环境变量
+
+文件
+ + `.env`
+ + `.env.development`
+ + `.env.production`
+
+```yaml
+# .env
+# 请求接口时使用的地址
+NEXT_PUBLIC_DEV_HOST=http://localhost:3000
+# 拼接跳转链接
+NEXT_PUBLIC_HOST=http://localhost:3000
+
+# .env.production
+# 生产环境下更改为要发布的域名
+NEXT_PUBLIC_HOST=https://www.advanta.top
+```
+
+
 ## 创建文章
 
 在`documents`目录下创建`.mdx`文件，页面链接以文件名命名，确保文件名的唯一性。
@@ -31,7 +95,7 @@ $ yarn run dev
 填入文章信息 `YAML格式`，以本篇为例。
 ```yaml
 ---
-create_time: 2020-11-24T14:06:52.348Z    # 创建时间
+create_time: 2020-12-09T02:54:45.017Z    # 创建时间
 title: 如何使用nextjs-blog搭建自己的博客    # 文章名称
 tags: [部署]                             # 标签
 keywords: [nextjs, blog]                # 关键字
@@ -52,8 +116,14 @@ import SolidLink from '@/components/solid-link';
 ## 部署
 
 ```bash
+$ # 启动开发环境，使接口可用
+$ yarn run dev
+$ 
+$ # 打开新的终端
 $ # 生成HTML文件
 $ yarn run build
+$ # 初始化gitalk
+$ yarn run gitalk
 ```
 
 ## 说明
