@@ -1,30 +1,128 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 开始
 
-## Getting Started
+安装Node.js环境，选择LTS版本。 [下载地址](https://nodejs.org/en/)
 
-First, run the development server:
+搭建前建议先阅读 [Next.js开发文档](https://www.nextjs.cn/docs/getting-started)
 
 ```bash
-npm run dev
-# or
-yarn dev
+$ # 全局安装yarn命令
+$ npm install yarn -g
+$
+$ # 从example分支下载项目
+$ yarn create next-app [项目名] -e https://github.com/Juexro/nextjs-blog.git/example
+$
+$ # 启动开发环境，默认访问地址 http://localhost:3000
+$ yarn run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 配置
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+#### config.js
+```js
+module.exports = {
+  // 个人信息
+  profile: {
+    name: 'Juexro',
+    github: 'https://github.com/Juexro',
+    mail: 'juexro@163.com',
+    avatar: '/avatar.jpg',
+    location: 'Su Zhou, China',
+    position: 'Web Developer'
+  },
+  // 评论工具参数
+  gitalk: {
+    // 用于初始化评论
+    accessToken: '',
+    // gitalk参数
+    clientID: '',
+    clientSecret: '',
+    // 提交的仓库
+    repo: '',
+    owner: 'Juexro',
+    admin: ['Juexro'],
+  },
+  // 友链
+  blogrolls: [
+    {
+      name: 'Juexro',
+      description: '基于Next.js的个人博客',
+      avatar: '/avatar.jpg',
+      link: 'https://www.advanta.top'
+    }
+  ],
+  // 页脚
+  footer: `<div>Copyright &copy; 2020 Juexro</div>`
+}
+```
 
-## Learn More
+快捷链接
+  + [生成AccessToken](https://github.com/settings/tokens)
+  + [创建OAuth App，生成ClientId、ClientSecret](https://github.com/settings/developers)
 
-To learn more about Next.js, take a look at the following resources:
+#### 环境变量
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+文件
+ + `.env`
+ + `.env.development`
+ + `.env.production`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```yaml
+# .env
+# 请求接口时使用的地址
+NEXT_PUBLIC_DEV_HOST=http://localhost:3000
+# 拼接跳转链接
+NEXT_PUBLIC_HOST=http://localhost:3000
 
-## Deploy on Vercel
+# .env.production
+# 生产环境下更改为要发布的域名
+NEXT_PUBLIC_HOST=https://www.advanta.top
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 创建文章
+
+在`documents`目录下创建`.mdx`文件，页面链接以文件名命名，确保文件名的唯一性。
+
+填入文章信息 `YAML格式`，以本篇为例。
+```yaml
+---
+create_time: 2020-12-09T02:54:45.017Z    # 创建时间
+title: 如何使用nextjs-blog搭建自己的博客    # 文章名称
+tags: [部署]                             # 标签
+keywords: [nextjs, blog]                # 关键字
+---
+
+import SolidLink from '@/components/solid-link';
+
+
+## 开始
+
+安装Node.js环境，选择LTS版本。<SolidLink href="https://nodejs.org/en/">[下载地址]</SolidLink>
+
+搭建前建议先阅读 <SolidLink href="https://www.nextjs.cn/docs/getting-started">Next.js开发文档</SolidLink>
+```
+
+支持引入组件，如上方示例中的`SolidLink`。
+
+## 部署
+
+```bash
+$ # 启动开发环境，使接口可用
+$ yarn run dev
+$ 
+$ # 打开新的终端
+$ # 生成HTML文件
+$ yarn run build
+$ # 初始化gitalk
+$ yarn run gitalk
+```
+
+## 说明
+
++ 启动开发环境时，会删除`pages/article`目录下的所有文件并根据`.mdx`文件重新生成。
+
++ 编译过程中会在`documents`目录下创建`index.json`文件，用以包含所有文章的`YAML`信息，请勿操作此文件。
+
+## LICENSE
+
+MIT
