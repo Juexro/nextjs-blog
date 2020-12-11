@@ -10,6 +10,13 @@ const { owner, repo, accessToken } = gitalk;
 
 const url = `https://api.github.com/repos/${owner}/${repo}/issues?access_token=${accessToken}&page=1&per_page=1000`;
 
+const extraLinks = [
+  {
+    title: '友情链接',
+    link: `${NEXT_PUBLIC_HOST}/blogroll`
+  }
+];
+
 async function getUnInitalLinks() {
   const data = await fetch(url, {
     method: 'GET',
@@ -25,14 +32,7 @@ async function getUnInitalLinks() {
       link: `${NEXT_PUBLIC_HOST}/article/${item.name}`
     };
   });
-  const otherLinks = [
-    {
-      title: '友情链接',
-      link: `${NEXT_PUBLIC_HOST}/blogroll`
-    }
-  ];
-
-  return [...articleLinks, ...otherLinks].filter(item => {
+  return [...articleLinks, ...extraLinks].filter(item => {
     return !issueLinks.find(link => link.includes(item.link))
   });
 }

@@ -36,3 +36,5 @@ yarn-error.log*
 .vscode
 documents/index.json
 yarn.lock
+
+sitemap.txt
