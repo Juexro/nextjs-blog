@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"next dev\" \"node ./scripts/dev.js\"",
-    "build": "next build && next export",
+    "build": "next build && next export && node ./scripts/build-sitemap.js",
     "start": "next start",
-    "upload": "node ./scripts/build-sitemap.js && node ./scripts/init-gitalk.js && node ./sftp-upload.js"
+    "publish": "node ./scripts/init-gitalk.js && node ./scripts/sftp-upload.js"
   },
   "dependencies": {
     "gitalk": "^1.7.0",

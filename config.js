@@ -1,11 +1,4 @@
 module.exports = {
-  sftp: {
-    srcDir: './out',
-    dstDir: '',
-    host: '',
-    username: '',
-    password: ''
-  },
   profile: {
     name: 'Juexro',
     github: 'https://github.com/Juexro',
@@ -30,5 +23,12 @@ module.exports = {
       link: 'https://www.advanta.top'
     }
   ],
-  footer: `<div>Copyright &copy; 2020 Juexro</div><div>苏ICP备17006194号</div>`
+  footer: `<div>Copyright &copy; 2020 Juexro</div><div>苏ICP备17006194号</div>`,
+  sftp: {
+    srcDir: './out',
+    dstDir: '',
+    host: '',
+    username: '',
+    password: ''
+  }
 }
