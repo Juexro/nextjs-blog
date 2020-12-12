@@ -1,4 +1,11 @@
 module.exports = {
+  sftp: {
+    srcDir: './out',
+    dstDir: '',
+    host: '',
+    username: '',
+    password: ''
+  },
   profile: {
     name: 'Juexro',
     github: 'https://github.com/Juexro',
@@ -13,7 +20,7 @@ module.exports = {
     clientSecret: '',
     repo: '',
     owner: 'Juexro',
-    admin: ['Juexro'],
+    admin: ['Juexro']
   },
   blogrolls: [
     {

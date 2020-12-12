@@ -1,6 +1,7 @@
 const fs = require('fs');
 const fetch = require('node-fetch');
 const dotenv = require('dotenv');
+const spinner = require('ora')();
 
 const documents = require('../documents/index.json');
 const gitalk = require('../config').gitalk;
@@ -52,15 +53,18 @@ async function initialLink({ link, title }) {
 }
 
 async function run() {
-  console.log('获取issues数据...');
+  spinner.start('获取issues数据...');
   const links = await getUnInitalLinks();
-  console.log(`未初始化数量: ${links.length}`);
+  spinner.succeed(`未初始化数量: ${links.length}`);
 
   for (let link of links) {
+    spinner.start(link.link);
     await initialLink(link);
+    spinner.succeed();
   }
 
-  console.log('初始化完成!');
+  spinner.start('初始化完成');
+  spinner.succeed();
 }
 
 run();

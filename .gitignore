@@ -38,3 +38,4 @@ documents/index.json
 yarn.lock
 
 sitemap.txt
+baidu_verify_code*.html
