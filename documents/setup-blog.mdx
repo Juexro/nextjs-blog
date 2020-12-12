@@ -60,7 +60,17 @@ module.exports = {
     }
   ],
   // 页脚
-  footer: `<div>Copyright &copy; 2020 Juexro</div>`
+  footer: `<div>Copyright &copy; 2020 Juexro</div>`,
+  // 服务器参数
+  sftp: {
+    // 上传目录 默认 ./out
+    srcDir: './out',
+    // 服务器目录
+    dstDir: '',
+    host: '',
+    username: '',
+    password: ''
+  }
 }
 ```
 
@@ -120,10 +130,10 @@ $ # 启动开发环境，使接口可用
 $ yarn run dev
 $ 
 $ # 打开新的终端
-$ # 生成HTML文件
+$ # 生成HTML文件和sitemap.txt
 $ yarn run build
-$ # 初始化gitalk
-$ yarn run gitalk
+$ # 发布 执行操作：初始化gitalk -> 上传文件至ftp
+$ yarn run publish
 ```
 
 ## 说明
