@@ -23,7 +23,7 @@ module.exports = {
       link: 'https://www.advanta.top'
     }
   ],
-  footer: `<div>Copyright &copy; 2020 Juexro</div><div>苏ICP备17006194号</div>`,
+  footer: `<div>Copyright &copy; 2020 Juexro</div><a href="https://beian.miit.gov.cn" target="_blank">苏ICP备17006194号</a>`,
   sftp: {
     srcDir: './out',
     dstDir: '',
